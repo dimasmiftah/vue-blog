@@ -1,9 +1,9 @@
 <template>
-<div id="show-blogs" v-theme:column="'narrow'">
+<div id="show-blogs">
 <h1>All Blogs Articles</h1>
 <div class="single-blog" v-for="blog in blogs" :key="blog.index">
-    <h3 v-rainbow>{{blog.title}}</h3>
-    <article>{{blog.body}}</article>
+    <h3>{{blog.title | to-uppercase}}</h3>
+    <article>{{blog.body | snippet}}</article>
 
 </div>
 </div>
