@@ -1,10 +1,9 @@
 <template>
 <div id="show-blogs">
-<h1>All Blogs Articles</h1>
+<h1>List All Blogs</h1>
 <input type="text" v-model="search" placeholder="search blogs">
 <div class="single-blog" v-for="blog in filteredBlogs" :key="blog.index">
     <h3 v-rainbow>{{blog.title | toUppercase}}</h3>
-    <article>{{blog.body | snippet}}</article>
 
 </div>
 </div>
@@ -28,6 +27,7 @@ created() {
     })
 },
 computed: {
+    
 },
 filters: {
     toUppercase(value) {
