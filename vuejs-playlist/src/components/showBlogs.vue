@@ -59,4 +59,9 @@ mixins: [searchMixin]
     box-sizing: border-box;
     background: #eee;
 }
+input{
+    width: 800px;
+    padding: 10px;
+    box-sizing: border-box;
+}
 </style>
