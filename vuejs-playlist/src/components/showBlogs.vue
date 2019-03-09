@@ -3,7 +3,7 @@
 <h1>All Blogs Articles</h1>
 <input type="text" v-model="search" placeholder="search blogs">
 <div class="single-blog" v-for="blog in filteredBlogs" :key="blog.index">
-    <h3>{{blog.title | to-uppercase}}</h3>
+    <h3 v-rainbow>{{blog.title | toUppercase}}</h3>
     <article>{{blog.body | snippet}}</article>
 
 </div>
@@ -32,6 +32,21 @@ computed: {
         })
     }
 },
+filters: {
+    toUppercase(value) {
+        return value.toUpperCase();
+    },
+    snippet(value){
+        return value.slice(0,100) + "...";
+    }
+},
+directives: {
+    'rainbow' : {
+        bind(el,binding,vnode){
+            el.style.color = "#" + Math.random().toString().slice(2,8);
+        }
+    }
+}
 }
 </script>
 
