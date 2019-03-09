@@ -3,7 +3,7 @@
 <h1>All Blogs Articles</h1>
 <input type="text" v-model="search" placeholder="search blogs">
 <div class="single-blog" v-for="blog in filteredBlogs" :key="blog.index">
-    <h3 v-rainbow>{{blog.title | toUppercase}}</h3>
+    <router-link v-bind:to="'blog/'+ blog.id"><h3 v-rainbow>{{blog.title | toUppercase}}</h3></router-link>
     <article>{{blog.body | snippet}}</article>
 
 </div>
@@ -23,7 +23,6 @@ return {
 created() {
     this.$http.get('https://jsonplaceholder.typicode.com/posts').then(function (data) {  
         this.blogs = data.body.slice(0,10);
-        console.log(this.blogs);
         
     })
 },
@@ -48,7 +47,10 @@ mixins: [searchMixin]
 }
 </script>
 
-<style>
+<style scoped>
+a{
+    text-decoration: none;
+}
 #show-blogs{
     max-width: 800px;
     margin: 0 auto;
